@@ -59,5 +59,11 @@ export function deserialize(htmlString) {
  * @return {String}
  */
 export function serialize(documentFragment) {
-	return new XMLSerializer().serializeToString(documentFragment);
+	let result = '';
+	let {doctype, firstElementChild} = documentFragment;
+	if (firstElementChild.tagName === 'HTML' && doctype) {
+		result += `<!DOCTYPE ${doctype.name}>`;
+	}
+	result += firstElementChild.outerHTML;
+	return result;
 }

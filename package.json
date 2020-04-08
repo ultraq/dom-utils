@@ -1,6 +1,6 @@
 {
 	"name": "@ultraq/dom-utils",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "A collection of utilities for working with the DOM",
 	"author": "Emanuel Rabina <emanuelrabina@gmail.com> (http://www.ultraq.net.nz/)",
 	"license": "Apache-2.0",
