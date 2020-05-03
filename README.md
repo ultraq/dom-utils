@@ -2,7 +2,7 @@
 dom-utils
 =========
 
-[![Build Status](https://travis-ci.org/ultraq/dom-utils.svg?branch=master)](https://travis-ci.com/ultraq/dom-utils)
+[![Build Status](https://travis-ci.com/ultraq/dom-utils.svg?branch=master)](https://travis-ci.com/ultraq/dom-utils)
 [![npm](https://img.shields.io/npm/v/@ultraq/dom-utils.svg?maxAge=3600)](https://www.npmjs.com/package/@ultraq/dom-utils)
 
 A collection of utilities for working with the DOM.
