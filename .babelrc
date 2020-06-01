@@ -1,14 +1,37 @@
 {
+	"plugins": [
+		"@babel/plugin-proposal-optional-chaining"
+	],
 	"env": {
 		"cjs": {
 			"presets": [
-				"@babel/preset-env"
+				["@babel/preset-env", {
+					"targets": {
+						"browsers": [
+							"ie 11"
+						]
+					}
+				}]
 			]
 		},
 		"es": {
 			"presets": [
 				["@babel/preset-env", {
-					"modules": false
+					"modules": false,
+					"targets": {
+						"browsers": [
+							"ie 11"
+						]
+					}
+				}]
+			]
+		},
+		"test": {
+			"presets": [
+				["@babel/preset-env", {
+					"targets": {
+						"node": "10.0.0"
+					}
 				}]
 			]
 		}

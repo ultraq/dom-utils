@@ -41,6 +41,14 @@ Deserialize an HTML string into a document fragment.
 
  - **htmlString**
 
+### parseJsonFromElement(selector)
+
+Parse the text content of the element picked out by the given selector as JSON
+data, returning it as an object.  Returns `null` if no data could be read.
+
+ - **selector**: a CSS selector for picking out the HTML element that contains
+   the JSON data
+
 ### serialize(documentFragment)
 
 Serialize a document fragment into an HTML string.
