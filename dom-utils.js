@@ -46,10 +46,10 @@ export function clearChildren(element) {
  * Deserialize an HTML string into a document fragment.
  * 
  * @param {String} htmlString
- * @return {DocumentFragment}
+ * @return {Document}
  */
 export function deserialize(htmlString) {
-	return document.createRange().createContextualFragment(htmlString);
+	return new DOMParser().parseFromString(htmlString, 'text/html')
 }
 
 /**
@@ -69,15 +69,21 @@ export function parseJsonFromElement(selector) {
 /**
  * Serialize a document fragment into an HTML string.
  * 
- * @param {DocumentFragment} documentFragment
+ * @param {Document|DocumentFragment} documentOrFragment
  * @return {String}
  */
-export function serialize(documentFragment) {
-	let result = '';
-	let {doctype, firstElementChild} = documentFragment;
-	if (firstElementChild.tagName === 'HTML' && doctype) {
-		result += `<!DOCTYPE ${doctype.name}>`;
+export function serialize(documentOrFragment) {
+	if (documentOrFragment instanceof Document) {
+		let result = '';
+		let {contentType, docType, firstChild} = documentOrFragment;
+		if (docType) {
+			result += `<!DOCTYPE ${doctype.name}>`;
+		}
+		else if (firstChild.tagName === 'HTML' || contentType === 'text/html') {
+			result += `<!DOCTYPE html>`;
+		}
+		result += firstChild.outerHTML;
+		return result;
 	}
-	result += firstElementChild.outerHTML;
-	return result;
+	return documentOrFragment.outerHTML;
 }
