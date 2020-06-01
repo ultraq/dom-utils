@@ -49,7 +49,7 @@ export function clearChildren(element) {
  * @return {Document}
  */
 export function deserialize(htmlString) {
-	return new DOMParser().parseFromString(htmlString, 'text/html')
+	return new DOMParser().parseFromString(htmlString, 'text/html');
 }
 
 /**
@@ -77,7 +77,7 @@ export function serialize(documentOrFragment) {
 		let result = '';
 		let {contentType, docType, firstChild} = documentOrFragment;
 		if (docType) {
-			result += `<!DOCTYPE ${doctype.name}>`;
+			result += `<!DOCTYPE ${docType.name}>`;
 		}
 		else if (firstChild.tagName === 'HTML' || contentType === 'text/html') {
 			result += `<!DOCTYPE html>`;
