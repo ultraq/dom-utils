@@ -67,7 +67,7 @@ export function parseJsonFromElement(selector) {
 }
 
 /**
- * Serialize a document fragment into an HTML string.
+ * Serialize a document or document fragment into an HTML string.
  * 
  * @param {Document|DocumentFragment} documentOrFragment
  * @return {String}

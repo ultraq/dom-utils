@@ -50,8 +50,8 @@ data, returning it as an object.  Returns `null` if no data could be read.
  - **selector**: a CSS selector for picking out the HTML element that contains
    the JSON data
 
-### serialize(documentFragment)
+### serialize(documentOrFragment)
 
-Serialize a document fragment into an HTML string.
+Serialize a document or document fragment into an HTML string.
 
- - **documentFragment**
+ - **documentOrFragment**
