@@ -73,16 +73,16 @@ export function parseJsonFromElement(selector) {
  * @return {String}
  */
 export function serialize(documentOrFragment) {
-	if (documentOrFragment instanceof Document) {
+	if (documentOrFragment.nodeType === Node.DOCUMENT_NODE) {
 		let result = '';
-		let {contentType, docType, firstChild} = documentOrFragment;
+		let {contentType, docType, firstElementChild} = documentOrFragment;
 		if (docType) {
 			result += `<!DOCTYPE ${docType.name}>`;
 		}
-		else if (firstChild.tagName === 'HTML' || contentType === 'text/html') {
+		else if (firstElementChild.tagName === 'HTML' || contentType === 'text/html') {
 			result += `<!DOCTYPE html>`;
 		}
-		result += firstChild.outerHTML;
+		result += firstElementChild.outerHTML;
 		return result;
 	}
 	return documentOrFragment.outerHTML;

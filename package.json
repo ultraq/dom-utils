@@ -1,6 +1,6 @@
 {
 	"name": "@ultraq/dom-utils",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "A collection of utilities for working with the DOM",
 	"author": "Emanuel Rabina <emanuelrabina@gmail.com> (http://www.ultraq.net.nz/)",
 	"license": "Apache-2.0",
@@ -32,11 +32,13 @@
 		"@babel/preset-env": "^7.10.2",
 		"babel-eslint": "^10.1.0",
 		"coveralls": "^3.1.0",
+		"dumb-query-selector": "^3.3.0",
 		"eslint": "^6.8.0",
 		"eslint-config-ultraq": "^2.3.0",
 		"hyperscript": "^2.0.2",
 		"hyperscript-helpers": "^3.0.3",
-		"jest": "^26.0.1"
+		"jest": "^26.0.1",
+		"jsdom": "^16.2.2"
 	},
 	"engines": {
 		"node": ">=10.0.0"

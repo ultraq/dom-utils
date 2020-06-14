@@ -15,10 +15,15 @@
  */
 
 /* eslint-env jest */
-import {parseJsonFromElement} from './dom-utils.js';
+import {
+	parseJsonFromElement,
+	serialize
+} from './dom-utils.js';
 
-import h  from 'hyperscript';
-import hh from 'hyperscript-helpers';
+import {$}     from 'dumb-query-selector';
+import h       from 'hyperscript';
+import hh      from 'hyperscript-helpers';
+import {JSDOM} from 'jsdom';
 
 const {div} = hh(h);
 
@@ -27,6 +32,7 @@ const {div} = hh(h);
  */
 describe('dom-utils', function() {
 
+	// TODO: Be able to specify the document so we can test separate DOMs
 	describe('#parseJsonFromElement', function() {
 
 		function createTestElement(data) {
@@ -57,6 +63,24 @@ describe('dom-utils', function() {
 			createTestElement('');
 			let result = parseJsonFromElement('#test-data');
 			expect(result).toBe(null);
+		});
+	});
+
+	describe('#serialize', function() {
+
+		const htmlString = '<!DOCTYPE html><html><head></head><body><p>Hi!</p></body></html>';
+
+		test('Full document', function() {
+			let doc = new JSDOM(htmlString).window.document;
+			let result = serialize(doc);
+			expect(result).toBe(htmlString);
+		});
+
+		test('Partial document', function() {
+			let doc = new JSDOM(htmlString).window.document;
+			let fragment = $('p', doc);
+			let result = serialize(fragment);
+			expect(result).toBe('<p>Hi!</p>');
 		});
 	});
 });
