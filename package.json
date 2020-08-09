@@ -12,7 +12,9 @@
 		"dom",
 		"utilities",
 		"event",
-		"delegate"
+		"delegate",
+		"deserialize",
+		"serialize"
 	],
 	"module": "dom-utils.es.js",
 	"main": "dom-utils.cjs.js",
