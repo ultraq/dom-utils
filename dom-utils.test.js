@@ -16,6 +16,8 @@
 
 /* eslint-env jest */
 import {
+	addEventDelegate,
+	clearChildren,
 	parseJsonFromElement,
 	serialize
 } from './dom-utils.js';
@@ -27,6 +29,52 @@ import {JSDOM} from 'jsdom';
  * Tests for the DOM utilities.
  */
 describe('dom-utils', function() {
+
+	describe('#addEventDelegate', function() {
+
+		test('Calls the configured handler when the selector matches', function() {
+			let doc = new JSDOM(`
+				<!DOCTYPE html>
+				<div id="wrapper">
+					<button id="target">Click me!</button>
+				</div>
+			`).window.document;
+			let handler = jest.fn();
+			addEventDelegate(doc.querySelector('#wrapper'), 'click', '#target', handler);
+			doc.querySelector('#target').click();
+			expect(handler).toHaveBeenCalled();
+		});
+
+		test('Does nothing if the event happens outside of the selector', function() {
+			let doc = new JSDOM(`
+				<!DOCTYPE html>
+				<div id="wrapper">
+					<button id="target">Click me!</button>
+					<button id="other">I do nothing!</button>
+				</div>
+			`).window.document;
+			let handler = jest.fn();
+			addEventDelegate(doc.querySelector('#wrapper'), 'click', '#target', handler);
+			doc.querySelector('#other').click();
+			expect(handler).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('#clearChildren', function() {
+
+		test('Removes all of the child elements', function() {
+			let doc = new JSDOM(`
+				<!DOCTYPE html>
+				<div id="parent">
+					<p>Child 1</p>
+					<p>Child 2</p>
+				</div>
+			`).window.document;
+			let parent = doc.querySelector('#parent');
+			clearChildren(parent);
+			expect(parent.childElementCount).toBe(0);
+		});
+	});
 
 	describe('#parseJsonFromElement', function() {
 
