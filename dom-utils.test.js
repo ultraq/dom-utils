@@ -21,36 +21,21 @@ import {
 } from './dom-utils.js';
 
 import {$}     from 'dumb-query-selector';
-import h       from 'hyperscript';
-import hh      from 'hyperscript-helpers';
 import {JSDOM} from 'jsdom';
-
-const {div} = hh(h);
 
 /**
  * Tests for the DOM utilities.
  */
 describe('dom-utils', function() {
 
-	// TODO: Be able to specify the document so we can test separate DOMs
 	describe('#parseJsonFromElement', function() {
-
-		function createTestElement(data) {
-			testDataEl = div('#test-data', data);
-			document.body.appendChild(testDataEl);
-		}
-
-		let testDataEl;
-		afterEach(function() {
-			testDataEl?.remove();
-		});
 
 		test('JSON data loaded', function() {
 			let testData = {
 				message: 'Hello!'
 			};
-			createTestElement(JSON.stringify(testData));
-			let result = parseJsonFromElement('#test-data');
+			let doc = new JSDOM(`<!DOCTYPE html><div id="test-data">${JSON.stringify(testData)}</div>`).window.document;
+			let result = parseJsonFromElement('#test-data', doc);
 			expect(result).toEqual(testData);
 		});
 
@@ -60,8 +45,8 @@ describe('dom-utils', function() {
 		});
 
 		test('null returned when element contains no content', function() {
-			createTestElement('');
-			let result = parseJsonFromElement('#test-data');
+			let doc = new JSDOM(`<!DOCTYPE html><div id="test-data"></div>`).window.document;
+			let result = parseJsonFromElement('#test-data', doc);
 			expect(result).toBe(null);
 		});
 	});

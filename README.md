@@ -50,6 +50,8 @@ data, returning it as an object.  Returns `null` if no data could be read.
 
  - **selector**: a CSS selector for picking out the HTML element that contains
    the JSON data
+ - **scope**: optional, the DOM tree to run the selector over.  Defaults to the
+   current `document`.
 
 ### serialize(documentOrFragment)
 

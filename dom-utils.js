@@ -59,11 +59,13 @@ export function deserialize(htmlString) {
  * @param {String} selector
  *   A CSS selector for picking out the HTML element that contains the JSON data
  *   to load.
+ * @param {Document} [scope=document]
+ *   The DOM tree to run the selector over.
  * @return {Object}
  *   The JSON data converted to an object, or `null` if no data could be read.
  */
-export function parseJsonFromElement(selector) {
-	return JSON.parse(document.querySelector(selector)?.textContent?.trim() || null);
+export function parseJsonFromElement(selector, scope = document) {
+	return JSON.parse((scope.querySelector(selector)?.textContent?.trim() || null));
 }
 
 /**
