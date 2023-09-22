@@ -3,7 +3,7 @@ dom-utils
 =========
 
 [![Build Status](https://github.com/ultraq/dom-utils/actions/workflows/build.yml/badge.svg)](https://github.com/ultraq/dom-utils/actions)
-[![Coverage Status](https://coveralls.io/repos/github/ultraq/dom-utils/badge.svg?branch=master)](https://coveralls.io/github/ultraq/dom-utils?branch=master)
+[![codecov](https://codecov.io/gh/ultraq/dom-utils/graph/badge.svg?token=1VI9MVLPJD)](https://codecov.io/gh/ultraq/dom-utils)
 [![npm](https://img.shields.io/npm/v/@ultraq/dom-utils.svg?maxAge=3600)](https://www.npmjs.com/package/@ultraq/dom-utils)
 [![Bundlephobia minified size](https://img.shields.io/bundlephobia/min/@ultraq/dom-utils)](https://bundlephobia.com/result?p=@ultraq/dom-utils)
 
