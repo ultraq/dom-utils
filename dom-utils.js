@@ -21,7 +21,7 @@
  * @param {Element} element
  * @param {string} eventName
  * @param {string} selector
- * @param {Function} handler
+ * @param {EventListener} handler
  */
 export function addEventDelegate(element, eventName, selector, handler) {
 	element.addEventListener(eventName, event => {
