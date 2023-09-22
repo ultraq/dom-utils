@@ -7,5 +7,6 @@ module.exports = {
 		'html',
 		'lcov',
 		'text-summary'
-	]
+	],
+	testEnvironment: './jest-environment-jsdom.js'
 };
