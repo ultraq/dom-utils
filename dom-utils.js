@@ -19,8 +19,8 @@
  * event matches `selector`.
  * 
  * @param {Element} element
- * @param {String} eventName
- * @param {String} selector
+ * @param {string} eventName
+ * @param {string} selector
  * @param {Function} handler
  */
 export function addEventDelegate(element, eventName, selector, handler) {
@@ -45,7 +45,7 @@ export function clearChildren(element) {
 /**
  * Deserialize an HTML string into a document fragment.
  * 
- * @param {String} htmlString
+ * @param {string} htmlString
  * @return {Document}
  */
 export function deserialize(htmlString) {
@@ -56,12 +56,12 @@ export function deserialize(htmlString) {
  * Parse the text content of the element picked out by the given selector as
  * JSON data, returning it as an object.
  * 
- * @param {String} selector
+ * @param {string} selector
  *   A CSS selector for picking out the HTML element that contains the JSON data
  *   to load.
- * @param {Document} [scope=document]
+ * @param {Document} [scope]
  *   The DOM tree to run the selector over.
- * @return {Object}
+ * @return {object}
  *   The JSON data converted to an object, or `null` if no data could be read.
  */
 export function parseJsonFromElement(selector, scope = document) {
@@ -72,7 +72,7 @@ export function parseJsonFromElement(selector, scope = document) {
  * Serialize a document or document fragment into an HTML string.
  * 
  * @param {Document|DocumentFragment} documentOrFragment
- * @return {String}
+ * @return {string}
  */
 export function serialize(documentOrFragment) {
 	if (documentOrFragment.nodeType === Node.DOCUMENT_NODE) {
