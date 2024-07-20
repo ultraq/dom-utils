@@ -1,12 +1,12 @@
-/* 
+/*
  * Copyright 2019, Emanuel Rabina (http://www.ultraq.net.nz/)
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,7 +17,7 @@
 /**
  * Add an event listener to `element` that only fires when the target of the
  * event matches `selector`.
- * 
+ *
  * @param {Element} element
  * @param {string} eventName
  * @param {string} selector
@@ -33,8 +33,10 @@ export function addEventDelegate(element, eventName, selector, handler) {
 
 /**
  * Removes all of an element's child nodes.
- * 
+ *
  * @param {Element} element
+ * @deprecated Can use `Element.replaceChildren()` with no args instead, see:
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren
  */
 export function clearChildren(element) {
 	while (element.firstChild) {
@@ -44,7 +46,7 @@ export function clearChildren(element) {
 
 /**
  * Deserialize an HTML string into a document fragment.
- * 
+ *
  * @param {string} htmlString
  * @return {Document}
  */
@@ -55,7 +57,7 @@ export function deserialize(htmlString) {
 /**
  * Parse the text content of the element picked out by the given selector as
  * JSON data, returning it as an object.
- * 
+ *
  * @param {string} selector
  *   A CSS selector for picking out the HTML element that contains the JSON data
  *   to load.
@@ -70,7 +72,7 @@ export function parseJsonFromElement(selector, scope = document) {
 
 /**
  * Serialize a document or document fragment into an HTML string.
- * 
+ *
  * @param {Document|DocumentFragment} documentOrFragment
  * @return {string}
  */
