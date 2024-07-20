@@ -35,6 +35,9 @@ matches `selector`.
 
 Removes all of an element's child nodes.
 
+> Deprecated: can use `Element.replaceChildren()` with no args instead, see:
+> https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren
+
  - **element**
 
 ### deserialize(htmlString)

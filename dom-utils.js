@@ -34,9 +34,9 @@ export function addEventDelegate(element, eventName, selector, handler) {
 /**
  * Removes all of an element's child nodes.
  *
- * @param {Element} element
  * @deprecated Can use `Element.replaceChildren()` with no args instead, see:
  * https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren
+ * @param {Element} element
  */
 export function clearChildren(element) {
 	while (element.firstChild) {
